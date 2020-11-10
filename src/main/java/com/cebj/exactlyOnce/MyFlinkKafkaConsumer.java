@@ -17,7 +17,7 @@ public class MyFlinkKafkaConsumer {
 
     public FlinkKafkaConsumer<String> initFlinkKafkaConsumer() {
         FlinkKafkaConsumer<String> consumer = new FlinkKafkaConsumer<>(inTopic, new SimpleStringSchema(), prop);
-        consumer.setStartFromEarliest();
+        consumer.setCommitOffsetsOnCheckpoints(false);
         return consumer;
     }
 
