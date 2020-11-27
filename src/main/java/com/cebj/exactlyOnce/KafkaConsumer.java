@@ -28,7 +28,7 @@ public class KafkaConsumer {
         props.setProperty("bootstrap.servers", "nn1.hadoop:9092,nn2.hadoop:9092,s1.hadoop:9092");
         props.setProperty("auto.offset.reset", "latest");
         props.setProperty("group.id", "std_topic_001");
-        props.setProperty("isolation.level", "read_committed");
+//        props.setProperty("isolation.level", "read_committed");
         props.setProperty("enable.auto.commit", "true");
         props.setProperty("auto.commit.interval.ms", "1000");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");

@@ -6,7 +6,7 @@ import org.apache.hadoop.hbase.TableName;
 import org.junit.Test;
 
 public class ConnTest {
-//    @Test
+    @Test
     public void test1() {
         System.out.println(ConnectionUtil.getConn());
     }

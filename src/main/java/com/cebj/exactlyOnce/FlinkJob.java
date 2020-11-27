@@ -12,7 +12,7 @@ public class FlinkJob {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
-        env.setStateBackend(new FsStateBackend("file:///data/flink/checkpoints"));
+        env.setStateBackend(new FsStateBackend("file:///data/flink/checkpoints1"));
         env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
         env.enableCheckpointing(60000);
 
