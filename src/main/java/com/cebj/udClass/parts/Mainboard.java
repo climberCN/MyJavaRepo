@@ -1,4 +1,4 @@
-package com.cebj.udClass;
+package com.cebj.udClass.parts;
 
 public class Mainboard {
     CPU cpu;
