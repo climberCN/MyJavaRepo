@@ -25,6 +25,7 @@ public class RunLittleSuperMarketArgs {
         }
 
         Scanner scanner = new Scanner(System.in);
+        MerchandiseV2 m0 = all[0];
         while (true) {
             System.out.println("今日超市大优惠，所有商品第二件半价，选择要购买的商品索引：");
             int index = scanner.nextInt();
@@ -36,7 +37,10 @@ public class RunLittleSuperMarketArgs {
             System.out.println("商品单价为：" + price);
             System.out.println("请输入要购买的数量：");
             int count = scanner.nextInt();
-            double totalCost = littleSuperMarket.merchandises[index].buy(count);
+//            double totalCost = littleSuperMarket.merchandises[index].buy(count);
+            double totalCost = littleSuperMarket.merchandises[index].buyAndPrintLeft(count, true);
+            boolean isBigger = littleSuperMarket.merchandises[index].totalValueBiggerThan(m0);
+            System.out.println("所选商品是否比第一个商品占用资金额大？" + isBigger);
             System.out.println("商品总价为：" + totalCost);
         }
     }
