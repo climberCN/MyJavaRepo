@@ -25,11 +25,10 @@ public class MerchandiseV2 {
                         + "商品进价：" + this.purchasePrice + " "
                         + "商品库存：" + this.count + " "
                         + "单品毛利润：" + (this.soldPrice - this.purchasePrice)
+                        + "赠品是："  + this.gift.name
         );
     }
 
-    // >> TODO 在方法定义中指定方法的返回值类型
-    // >> TODO Java中一个方法只能有一个返回值，该返回值类型可以是基本数据类型也可以是引用数据类型，但只能由一个，如果不需要返回值则用void表示。
     public double calculateProfit() {
         double profit = soldPrice - purchasePrice;
         if (profit <= 0) {
@@ -87,14 +86,6 @@ public class MerchandiseV2 {
     }
 
     // >> TODO 参数可以是任何类型，包括自定义类型
-    // 究竟什么是方法？其实就是一个函数，之前我把它类比成物料加工器。
-    // 我们给他一个输入，它进行加工，并返回给我们一个加工品。这就是函数
-    // 但是现在我们把函数放在了类中，它改名叫作方法。那有什么不一样吗？
-    // 本质来说是没有不一样的，方法同样也是一个物料加工器，我们给他一个输入，
-    // 它同样要加工后返回给我们一个加工品。虽然函数放在了类中改名叫作方法，但他的本质没有变。
-    // 方法可以不受类的限制，接收任何参数，做任何事情，返回任何结果。
-    // 所以方法的参数可以是任何类型，包括自定义类型，甚至类自己。
-    // 返回值也一样，可以是任何类型，甚至类自己
     public boolean isTheBigggestTotalValueOne(LittleSuperMarket littleSuperMarket) {
         double totalValue = count * purchasePrice;
         for (int i = 0; i < littleSuperMarket.merchandises.length; i++) {

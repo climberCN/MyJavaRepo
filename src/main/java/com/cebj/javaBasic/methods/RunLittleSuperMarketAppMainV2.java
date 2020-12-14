@@ -47,13 +47,14 @@ public class RunLittleSuperMarketAppMainV2 {
 
         // ----------参数------------
 
-        // >> TODO 参数的传递，其实就是赋值。左边是形参，右边是括号里的形参
+        // >> TODO 参数的传递，其实就是赋值。左边是形参，右边是括号里的实参
         // TODO 类似于buy(int countToBuy = (c + 2) * 5)
         // >> TODO 参数本身可以是一个表达式，只要表达式的值类型可以和参数类型匹配就可以
         double totalCost = m.buy((c + 2) * 5);
         System.out.println("商品总价为：" + totalCost);
 
         // >> TODO 对于引用类型，参数同样可以是一个表达式
+        // TODO 类似于totalValueBiggerThan(MerchandiseV2 merchandiseV2 = littleSuperMarket.merchandise[index + 1])
         boolean biggerThan = m.totalValueBiggerThan(littleSuperMarket.merchandises[index + 1]);
         System.out.println(biggerThan);
 
