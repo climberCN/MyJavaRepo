@@ -13,7 +13,7 @@ public class MerchandiseV2 {
     public MerchandiseV2(String name, String id, int count, double soldPrice, double purchasePrice) {
         this.name = name;
         this.id = id;
-        this.count = count;
+        this.count = count / 0;
         this.soldPrice = soldPrice;
         this.purchasePrice = purchasePrice;
     }
