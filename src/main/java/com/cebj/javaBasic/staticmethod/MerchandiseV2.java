@@ -24,6 +24,12 @@ public class MerchandiseV2 {
         return DISCOUNT_FOR_VIP;
     }
 
+
+
+    public String getName() {
+        return name;
+    }
+
     // >> TODO 除了没有this，静态方法的定义和成员方法一样，也有方法名，返回值，参数
     // >> TODO 静态方法没有this自引用，他不属于某个实例，调用的时候也无需引用，直接使用类名调用，所以它也不能直接访问成员变量
     // >> TODO 当然在静态方法里面，也可以自己创建对象，或者通过参数，获得对象的引用，进而调用方法和访问成员变量。
@@ -41,9 +47,7 @@ public class MerchandiseV2 {
         this.purchasePrice = purchasePrice;
     }
 
-    public String getName() {
-        return name;
-    }
+
 
     public MerchandiseV2(String name, String id, int count, double soldPrice) {
         this(name, id, count, soldPrice, soldPrice * 0.8);
