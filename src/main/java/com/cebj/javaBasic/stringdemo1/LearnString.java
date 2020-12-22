@@ -13,7 +13,7 @@ public class LearnString {
         System.out.println(content);
         System.out.println(content.charAt(1));
 
-        System.out.println(content.charAt(99));
+//        System.out.println(content.charAt(99));
         System.out.println(content.substring(5));
         System.out.println(content.substring(1,5));
     }
