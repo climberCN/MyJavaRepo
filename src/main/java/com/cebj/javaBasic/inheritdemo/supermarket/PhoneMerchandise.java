@@ -19,38 +19,34 @@ public class PhoneMerchandise {
     private double purchasePrice;
 
 
-    public PhoneMerchandise(String name, String id, int count, double soldPrice, double purchasePrice) {
+    public PhoneMerchandise(String name, String id, int count, double soldPrice, double purchasePrice,
+                            double screenSize, double cpuHZ, int memoryG, int storageG, String brand, String os) {
         this.name = name;
         this.id = id;
         this.count = count;
         this.soldPrice = soldPrice;
         this.purchasePrice = purchasePrice;
-        // soldPrice = 9/0;
-    }
-
-    public PhoneMerchandise(String name, String id, int count, double soldPrice) {
-        // double purPrice = soldPrice * 0.8;
-        // this(name, id, count, soldPrice, purchasePrice);
-        this(name, id, count, soldPrice, soldPrice * 0.8);
-        // double purPrice = soldPrice * 0.8;
-    }
-
-    public PhoneMerchandise() {
-        this("无名", "000", 0, 1, 1.1);
-
+        this.screenSize = screenSize;
+        this.cpuHZ = cpuHZ;
+        this.memoryG = memoryG;
+        this.storageG = storageG;
+        this.brand = brand;
+        this.os = os;
     }
 
     public void describe() {
         System.out.println("商品名字叫做" + name + "，id是" + id + "。 商品售价是" + soldPrice
                 + "。商品进价是" + purchasePrice + "。商品库存量是" + count +
-                "。销售一个的毛利润是" + (soldPrice - purchasePrice));
+                "。销售一个的毛利润是" + (soldPrice - purchasePrice) +
+                "手机厂商为" + brand + "；系统为" + os + "；硬件配置如下：\n" +
+                "屏幕：" + screenSize + "寸\n" +
+                "cpu主频" + cpuHZ + " GHz\n" +
+                "内存" + memoryG + "Gb\n" +
+                "存储空间" + storageG + "Gb\n");
     }
 
     public double calculateProfit() {
         double profit = soldPrice - purchasePrice;
-//        if(profit <= 0){
-//            return 0;
-//        }
         return profit;
     }
 
@@ -105,4 +101,51 @@ public class PhoneMerchandise {
         this.purchasePrice = purchasePrice;
     }
 
+    public double getScreenSize() {
+        return screenSize;
+    }
+
+    public void setScreenSize(double screenSize) {
+        this.screenSize = screenSize;
+    }
+
+    public double getCpuHZ() {
+        return cpuHZ;
+    }
+
+    public void setCpuHZ(double cpuHZ) {
+        this.cpuHZ = cpuHZ;
+    }
+
+    public int getMemoryG() {
+        return memoryG;
+    }
+
+    public void setMemoryG(int memoryG) {
+        this.memoryG = memoryG;
+    }
+
+    public int getStorageG() {
+        return storageG;
+    }
+
+    public void setStorageG(int storageG) {
+        this.storageG = storageG;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public void setOs(String os) {
+        this.os = os;
+    }
 }

@@ -1,13 +1,28 @@
-package com.cebj.javaBasic.inheritdemo.supermarket;
+package com.cebj.javaBasic.visiable;
 
+import com.cebj.javaBasic.methods.Merchandise;
+
+/**
+ * @author zjh
+ * @version V1.0
+ * @Package com.cebj.javaBasic.visiable
+ * @date 2020/12/19 0019 11:51
+ */
+
+// >> TODO 类、静态方法、静态变量、成员变量、构造方法、成员方法都可以使用访问修饰符
 public class MerchandiseV2 {
-    public String name;
-    public String id;
-    public int count;
-    public double soldPrice;
+    // >> TODO 成员变量都应该声明为private
+    // >> TODO 如果要读写这些成员变量，最好使用get set方法，这些方法应该是public的
+    // >> TODO 这样做的好处就是，如果有需要，可以通过代码，检查每个属性值是否合法
+    private String name;
+    private String id;
+    private int count;
+    private double soldPrice;
     private double purchasePrice;
+    private NonPublicClassCanUseAnyName nonPublicClassCanUseAnyName;
+    public static double DISCOUNT = 0.1;
 
-
+    // >> TODO 构造方法如果是private的，那么就只有当前的类可以调用这个方法
     public MerchandiseV2(String name, String id, int count, double soldPrice, double purchasePrice) {
         this.name = name;
         this.id = id;
@@ -16,19 +31,33 @@ public class MerchandiseV2 {
         this.purchasePrice = purchasePrice;
     }
 
+    // >> TODO 有些时候，会把所有的构造方法都定义成private的，然后使用静态方法调用构造方法
+    // >> TODO 同样的，这样的好处是可以通过代码，检查每个属性是否合法。
+    public static MerchandiseV2 createMerchandise(String name, String id, int count, double soldPrice, double purchasePrice) {
+        if (soldPrice < 0 || purchasePrice < 0) {
+            return null;
+        }
+        return new MerchandiseV2(name, id, count, soldPrice,purchasePrice);
+    }
+
     public MerchandiseV2(String name, String id, int count, double soldPrice) {
         this(name, id, count, soldPrice, soldPrice * 0.8);
     }
 
     public MerchandiseV2() {
         this("无名", "000", 0, 1, 1.1);
-
     }
 
+    // >> TODO public方法类似于一种约定，其他类需要提供什么参数，会返回给其他类什么值。其他类要使用，所以不能乱改
     public void describe() {
         System.out.println("商品名字叫做" + name + "，id是" + id + "。 商品售价是" + soldPrice
                 + "。商品进价是" + purchasePrice + "。商品库存量是" + count +
                 "。销售一个的毛利润是" + (soldPrice - purchasePrice));
+        freeStyle();
+    }
+
+    // >> TODO 对于private方法，因为外面调用不到，所以无论怎么改，也不会影响（直接影响）类外面的代码
+    private void freeStyle(){
     }
 
     public double calculateProfit() {
@@ -40,11 +69,8 @@ public class MerchandiseV2 {
         if (this.count < count) {
             return -1;
         }
-        this.count -= count;
-
-        return count * soldPrice;
+        return this.count -= count;
     }
-
 
     public String getName() {
         return name;

@@ -1,5 +1,6 @@
 package com.cebj.javaBasic;
 
+
 public class ArrayDemo {
     public static void main(String[] args) {
         // 这里我们使用Merchandise[]定义了数组的类型，类似于int[], 而merchandises就是我们的引用。

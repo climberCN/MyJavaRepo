@@ -33,6 +33,8 @@ public class PhoneExtendsMerchandise extends MerchandiseV2{
         this.setId(id);
         this.setCount(count);
         this.setSoldPrice(soldPrice);
+        this.name = name;
+//        this.purchasePrice = purchasePrice;
         this.setPurchasePrice(purchasePrice);
     }
 
