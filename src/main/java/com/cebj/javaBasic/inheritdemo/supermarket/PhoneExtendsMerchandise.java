@@ -40,12 +40,40 @@ public class PhoneExtendsMerchandise extends MerchandiseV2{
 
     public void describePhone() {
         System.out.println("此手机商品属性如下：");
-        describe();
+        this.describe();
         System.out.println("手机厂商为" + brand + "；系统为" + os + "；硬件配置如下：\n" +
                 "屏幕：" + screenSize + "寸\n" +
                 "cpu主频" + cpuHZ + " GHz\n" +
                 "内存" + memoryG + "Gb\n" +
                 "存储空间" + storageG + "Gb\n");
+    }
+
+    public void callParentMethodWithThis(){
+        this.calculateProfit();
+        this.setSoldPrice(50.3);
+        this.buy(10);
+        this.describe();
+    }
+
+    public void callParentMethod() {
+        calculateProfit();
+        setSoldPrice(50.3);
+        buy(10);
+        describe();
+    }
+
+    public void callParentFieldsWithThis() {
+        System.out.println(this.name);
+        System.out.println(this.id);
+        System.out.println(this.soldPrice);
+//        System.out.println(this.purchasePrice);
+    }
+
+    public void callParentFileds(){
+        System.out.println(name);
+        System.out.println(id);
+        System.out.println(soldPrice);
+//        System.out.println(purchasePrice);
     }
 
     public boolean meetCondition() {

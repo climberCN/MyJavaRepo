@@ -1,11 +1,11 @@
-package com.cebj.javaBasic.inheritdemo.supermarket;
+package com.cebj.javaBasic.inheritdemo1.supermarket;
 
 public class MerchandiseV2 {
     public String name;
     public String id;
     public int count;
     public double soldPrice;
-    private double purchasePrice;
+    public double purchasePrice;
 
     public MerchandiseV2(String name, String id, int count, double soldPrice, double purchasePrice) {
         this.name = name;
@@ -21,17 +21,12 @@ public class MerchandiseV2 {
 
     public MerchandiseV2() {
         this("无名", "000", 0, 1, 1.1);
-
     }
 
-    public static void inheritStaticMethod(){
-        System.out.println("执行PhoneExtendMerchandise.inheritStaticMethod()静态方法");
-    }
     public void describe() {
         System.out.println("商品名字叫做" + name + "，id是" + id + "。 商品售价是" + soldPrice
                 + "。商品进价是" + purchasePrice + "。商品库存量是" + count +
                 "。销售一个的毛利润是" + (soldPrice - purchasePrice));
-        inheritStaticMethod();
     }
 
     public double calculateProfit() {
@@ -47,7 +42,6 @@ public class MerchandiseV2 {
 
         return count * soldPrice;
     }
-
 
     public String getName() {
         return name;
