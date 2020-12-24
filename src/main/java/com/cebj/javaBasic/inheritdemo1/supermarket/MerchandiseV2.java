@@ -5,7 +5,12 @@ public class MerchandiseV2 {
     public String id;
     public int count;
     public double soldPrice;
-    public double purchasePrice;
+    private double purchasePrice;
+    public static double staticField = 20.2;
+
+    public static void staticMethod() {
+        System.out.println("执行MerchandiseV2的静态方法staticMethod()");
+    }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice, double purchasePrice) {
         this.name = name;
@@ -41,6 +46,10 @@ public class MerchandiseV2 {
         this.count -= count;
 
         return count * soldPrice;
+    }
+
+    private void privateMethod(){
+        System.out.println("执行父类的私有方法");
     }
 
     public String getName() {
