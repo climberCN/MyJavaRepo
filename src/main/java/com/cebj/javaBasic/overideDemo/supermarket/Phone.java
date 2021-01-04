@@ -34,12 +34,7 @@ public class Phone extends MerchandiseV2 {
         this.setPurchasePrice(purchasePrice);
     }
 
-    // >> TODO 通过使用和父类方法签名一样，而且返回值也一样的方法，可以让子类覆盖（override）掉父类的方法
-    // >> TODO ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓下面才是继承的终极奥义↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     // >> TODO 也就是说，子类并不是只能把父类的方法拿过来，而且可以通过覆盖来替换其中不适合子类的方法
-    // >> TODO ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑上面才是继承的终极奥义↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-    // >> TODO 题外话：属性是联动的，可能是有特殊意义的。
-    // TODO 所以直接给属性赋值是危险的，因为没有办法检查新的值是否有意义，也没法对这个修改做联动的修改
     public double buy(int count) {
         // TODO 这个方法里代码大部分和父类一样，肯定有方法解决。
         if (count > MAX_BUY_ONE_ORDER) {
@@ -56,23 +51,6 @@ public class Phone extends MerchandiseV2 {
         return cost;
     }
 
-    // >> TODO 返回值必须一样，不是类型兼容，而是必须一模一样
-    // >> TODO 如果签名一样，但是返回值不一样，会是错误
-//    public int buy(int count) {
-//        if (count > MAX_BUY_ONE_ORDER) {
-//            return -2;
-//        }
-//        if (this.count < count) {
-//            return -1;
-//        }
-//        return this.count -= count;
-//    }
-
-    // >> TODO 返回值必须一样，不是兼容类型，而是必须一模一样
-//    public boolean buy(int count) {
-//        return true;
-//    }
-
     // >> TODO 覆盖可以覆盖掉父类的方法。同一个方法，不同的行为
     // >> TODO 这，就是多态
     // >> TODO 方法可以覆盖，属性访问不可以，所以这也是使用方法的一个原因
@@ -84,7 +62,7 @@ public class Phone extends MerchandiseV2 {
 
     // TODO 根据我们对覆盖的理解，Phone类里的describePhone方法应该叫做describe
     // TODO 同样的，我们想要调用父类里的describe方法，试试看？
-    public void describe(){
+    public void describePhone(){
         System.out.println("此手机商品属性如下");
         describe();
         System.out.println("手机厂商为" + brand + "；系统为" + os + "；硬件配置如下：\n" +
