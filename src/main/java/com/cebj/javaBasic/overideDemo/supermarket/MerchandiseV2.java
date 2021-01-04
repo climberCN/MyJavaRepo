@@ -1,16 +1,18 @@
-package com.cebj.javaBasic.inheritdemo1.supermarket;
+package com.cebj.javaBasic.overideDemo.supermarket;
 
+/**
+ * @author zjh
+ * @version V1.0
+ * @Package com.cebj.javaBasic.overideDemo.supermarket
+ * @date 2020/12/25 0025 15:48
+ */
 public class MerchandiseV2 {
     public String name;
     public String id;
     public int count;
     public double soldPrice;
-    private double purchasePrice;
-    public static int MAX_PURCHASE_AMOUNT = 5;
+    public double purchasePrice;
 
-    public static void staticMethod() {
-        System.out.println("执行MerchandiseV2的静态方法staticMethod()");
-    }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice, double purchasePrice) {
         this.name = name;
@@ -18,14 +20,19 @@ public class MerchandiseV2 {
         this.count = count;
         this.soldPrice = soldPrice;
         this.purchasePrice = purchasePrice;
+        // soldPrice = 9/0;
     }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice) {
+        // double purPrice = soldPrice * 0.8;
+        // this(name, id, count, soldPrice, purchasePrice);
         this(name, id, count, soldPrice, soldPrice * 0.8);
+        // double purPrice = soldPrice * 0.8;
     }
 
     public MerchandiseV2() {
         this("无名", "000", 0, 1, 1.1);
+
     }
 
     public void describe() {
@@ -36,6 +43,9 @@ public class MerchandiseV2 {
 
     public double calculateProfit() {
         double profit = soldPrice - purchasePrice;
+//        if(profit <= 0){
+//            return 0;
+//        }
         return profit;
     }
 
@@ -43,14 +53,9 @@ public class MerchandiseV2 {
         if (this.count < count) {
             return -1;
         }
-        this.count -= count;
-
-        return count * soldPrice;
+        return this.count -= count;
     }
 
-    private void privateMethod(){
-        System.out.println("执行父类的私有方法");
-    }
 
     public String getName() {
         return name;

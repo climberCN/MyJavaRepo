@@ -1,16 +1,18 @@
-package com.cebj.javaBasic.inheritdemo1.supermarket;
+package com.cebj.javaBasic.superdemo.supermarket;
 
+/**
+ * @author zjh
+ * @version V1.0
+ * @Package com.cebj.javaBasic.superdemo.supermarket
+ * @date 2020/12/26 0026 8:09
+ */
 public class MerchandiseV2 {
     public String name;
     public String id;
     public int count;
     public double soldPrice;
-    private double purchasePrice;
-    public static int MAX_PURCHASE_AMOUNT = 5;
+    public double purchasePrice;
 
-    public static void staticMethod() {
-        System.out.println("执行MerchandiseV2的静态方法staticMethod()");
-    }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice, double purchasePrice) {
         this.name = name;
@@ -18,6 +20,7 @@ public class MerchandiseV2 {
         this.count = count;
         this.soldPrice = soldPrice;
         this.purchasePrice = purchasePrice;
+        // soldPrice = 9/0;
     }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice) {
@@ -41,16 +44,15 @@ public class MerchandiseV2 {
 
     public double buy(int count) {
         if (this.count < count) {
+            System.out.println("购买失败，库存不够");
             return -1;
         }
         this.count -= count;
-
-        return count * soldPrice;
+        double cost = count * soldPrice;
+        System.out.println("购买成功，花费为" + cost);
+        return cost;
     }
 
-    private void privateMethod(){
-        System.out.println("执行父类的私有方法");
-    }
 
     public String getName() {
         return name;

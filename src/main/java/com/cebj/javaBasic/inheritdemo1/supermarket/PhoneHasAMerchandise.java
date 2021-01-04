@@ -1,6 +1,8 @@
 package com.cebj.javaBasic.inheritdemo1.supermarket;
 
 public class PhoneHasAMerchandise {
+    public static int MAX_PURCHASE_AMOUNT = 5;
+
     // 给Phone增加新的属性和方法
     private double screenSize;
     private double cpuHZ;
@@ -36,6 +38,17 @@ public class PhoneHasAMerchandise {
                 "cpu主频" + cpuHZ + " GHz\n" +
                 "内存" + memoryG + "Gb\n" +
                 "存储空间" + storageG + "Gb\n");
+    }
+
+    public double buyPhone(int count) {
+        if (this.merchandise.count < count) {
+            return -1;
+        }
+        if (count > MAX_PURCHASE_AMOUNT) {
+            return -1;
+        }
+        this.merchandise.count -= count;
+        return count * this.merchandise.soldPrice;
     }
 
     public double getScreenSize() {

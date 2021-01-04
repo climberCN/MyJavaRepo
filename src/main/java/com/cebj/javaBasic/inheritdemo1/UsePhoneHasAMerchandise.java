@@ -22,6 +22,7 @@ public class UsePhoneHasAMerchandise {
         // TODO 我们可以在每次修改的厂商和型号的时候，都去set一下商品的名字。繁琐，但做得到
         phone.getMerchandise().getName();
         // TODO 如果要限制购买的数量不超过5，怎么办？来移步继承
-        phone.getMerchandise().buy(100);
+        phone.getMerchandise().buy(10);
+        phone.buyPhone(10);
     }
 }
