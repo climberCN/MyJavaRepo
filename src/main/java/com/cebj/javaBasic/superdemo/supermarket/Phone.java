@@ -23,11 +23,14 @@ public class Phone extends MerchandiseV2 {
             System.out.println("购买失败，手机一次最多只能买" + MAX_BUY_ONE_ORDER + "个");
             return -2;
         }
-        return -2;
+        return super.buy(count);
     }
 
     public String getName() {
-        return this.brand + ":" + this.os + ":" + name;
+        this.buy(20);
+        super.buy(20);
+        System.out.println(this.name);
+        return this.brand + ":" + this.os + ":" + super.name;
     }
 
     public void describe() {
@@ -41,7 +44,7 @@ public class Phone extends MerchandiseV2 {
     }
 
     // >> TODO super是子类和父类交流的桥梁，但是并不是父类的引用
-    // >> TODO 所以super和this自引用不一样，不是简单可以模拟的（可以模拟的话不就成组合了吗）
+    // >> TODO 所以super和this自引用不一样，不是很简单就可以模拟的（可以模拟的话不就成组合了吗）
 //    public MerchandiseV2 getParent() {
 //        return super;
 //    }

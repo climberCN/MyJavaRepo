@@ -20,7 +20,6 @@ public class MerchandiseV2 {
         this.count = count;
         this.soldPrice = soldPrice;
         this.purchasePrice = purchasePrice;
-        // soldPrice = 9/0;
     }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice) {
