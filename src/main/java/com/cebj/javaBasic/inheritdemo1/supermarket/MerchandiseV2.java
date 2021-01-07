@@ -5,7 +5,7 @@ public class MerchandiseV2 {
     public String id;
     public int count;
     public double soldPrice;
-    private double purchasePrice;
+    public double purchasePrice;
     public static int MAX_PURCHASE_AMOUNT = 5;
 
     public static void staticMethod() {

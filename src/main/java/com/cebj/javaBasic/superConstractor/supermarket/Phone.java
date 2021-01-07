@@ -15,11 +15,6 @@ public class Phone extends MerchandiseV2{
             String name, String id, int count, double soldPrice, double purchasePrice,
             double screenSize, double cpuHZ, int memoryG, int storageG, String brand, String os
     ) {
-        // >> TODO 使用super调用父类的构造方法，必须是子类构造方法的第一个语句
-        // >> TODO 可以使用表达式
-        // >> TODO super调用构造方法，不可以使用super访问父类的属性和方法，不可以使用子类成员变量和方法
-        // >> TODO 可以使用静态变量和方法
-        // >> TODO 都是<init>方法，来debug看一下
         super(name, id, count, soldPrice * 1.2, purchasePrice);
         init(screenSize, cpuHZ, memoryG, storageG, brand, os);
     }
@@ -29,7 +24,7 @@ public class Phone extends MerchandiseV2{
         init(4.5, 4.6, 6, 128, "Uknown", "Uknown");
     }
 
-    public Phone(double screenSize, double cpuHZ, int memoryG, int storageG, String brand, String os) {
+    public void init(double screenSize, double cpuHZ, int memoryG, int storageG, String brand, String os) {
         this.screenSize = screenSize;
         this.cpuHZ = cpuHZ;
         this.memoryG = memoryG;
@@ -38,7 +33,7 @@ public class Phone extends MerchandiseV2{
         this.os = os;
     }
 
-    public void init(double screenSize, double cpuHZ, int memoryG, int storageG, String brand, String os) {
+    public Phone(double screenSize, double cpuHZ, int memoryG, int storageG, String brand, String os) {
         this.screenSize = screenSize;
         this.cpuHZ = cpuHZ;
         this.memoryG = memoryG;

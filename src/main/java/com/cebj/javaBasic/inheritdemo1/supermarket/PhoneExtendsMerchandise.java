@@ -42,6 +42,16 @@ public class PhoneExtendsMerchandise extends MerchandiseV2 {
         this.brand = brand;
         this.os = os;
 
+        this.name = name;
+        this.id = id;
+        this.count = count;
+        this.soldPrice = soldPrice;
+        this.purchasePrice = purchasePrice;
+
+
+
+
+
         this.setName(name);
         this.setId(id);
         this.setCount(count);
