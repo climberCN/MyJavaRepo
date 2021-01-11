@@ -39,7 +39,7 @@ public class OverloadTestAppMain {
         merchandiseTest.testMerchandiseOverload((ShellColorChangePhone) m);
 
         System.out.println("-----------3-------------");
-        // >> TODO 如果引用类型没有完全匹配的，则会根据继承关系，沿着参数当前类型，向下撸
+        // >> TODO 如果引用类型没有完全匹配的，则会根据继承关系，沿着参数当前类型，向父类往上撸
         merchandiseTest.testMerchandiseOverloadNotExactlyMatchType((ShellColorChangePhone) m);
         // >> TODO 重载总结：静态多态，调用的和参数与实际指向的对象无关，只和引用本身的类型相关。
         // >> TODO 因为调用时，参数类型是确定的，所以，在编译期间，就可以明确的知道哪个方法会被调用。如果有多种可能，则会有编译错误。
