@@ -8,15 +8,6 @@ public class LittleSuperMarket {
     public MerchandiseV2[] merchandises;
     public int[] merchandiseSold;
 
-    /**
-     * 初始化小超市
-     *
-     * @param superMarketName
-     * @param address
-     * @param parkingCount
-     * @param merchandiseCount 商品种类数
-     * @param count            每种商品缺省库存
-     */
     public LittleSuperMarket(String superMarketName, String address, int parkingCount,
                              int merchandiseCount, int count) {
         this.superMarketName = superMarketName;
