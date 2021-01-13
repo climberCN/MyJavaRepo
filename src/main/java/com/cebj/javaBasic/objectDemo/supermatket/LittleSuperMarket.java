@@ -1,35 +1,27 @@
-package com.cebj.javaBasic.finalDemo.supermarket;
+package com.cebj.javaBasic.objectDemo.supermatket;
 
 public class LittleSuperMarket {
     public String superMarketName;
     public String address;
     public int parkingCount;
     public double incomingSum;
-    // >> TODO 用 final 修饰成员变量看看？
-    public final MerchandiseV2[] merchandises;
-    public final int[] merchandiseSold;
+    public MerchandiseV2[] merchandises;
+    public int[] merchandiseSold;
 
-    public MerchandiseV2[] getMerchandises() {
-        return merchandises;
-    }
-
-    public int[] getMerchandiseSold() {
-        return merchandiseSold;
-    }
-
+    /**
+     * 初始化小超市
+     *
+     * @param superMarketName
+     * @param address
+     * @param parkingCount
+     * @param merchandiseCount 商品种类数
+     * @param count            每种商品缺省库存
+     */
     public LittleSuperMarket(String superMarketName, String address, int parkingCount,
                              int merchandiseCount, int count) {
         this.superMarketName = superMarketName;
         this.address = address;
         this.parkingCount = parkingCount;
-
-        MerchandiseV2 giftForPhone = new MerchandiseV2(
-                "手机赠品-64G存储卡",
-                "GIFT001",
-                999,
-                60,
-                30
-        );
 
         merchandises = new MerchandiseV2[merchandiseCount];
         for (int i = 0; i < merchandises.length; i++) {
@@ -42,7 +34,6 @@ public class LittleSuperMarket {
                         count,
                         1999,
                         999,
-                        giftForPhone,
                         4.5,
                         3.5,
                         4,
@@ -57,7 +48,6 @@ public class LittleSuperMarket {
                         count,
                         1999,
                         999,
-                        giftForPhone,
                         4.5,
                         3.5,
                         4,
@@ -115,12 +105,14 @@ public class LittleSuperMarket {
         this.incomingSum = incomingSum;
     }
 
-//    public void setMerchandises(MerchandiseV2[] merchandises) {
-//        this.merchandises = merchandises;
-//    }
-//    public void setMerchandiseSold(int[] merchandiseSold) {
-//        this.merchandiseSold = merchandiseSold;
-//    }
+    public void setMerchandises(MerchandiseV2[] merchandises) {
+        this.merchandises = merchandises;
+    }
+
+    public void setMerchandiseSold(int[] merchandiseSold) {
+        this.merchandiseSold = merchandiseSold;
+    }
+
     // 一些特殊的逻辑
 
     /**
