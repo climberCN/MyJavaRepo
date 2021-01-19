@@ -17,10 +17,7 @@ public class MerchandiseV2 {
     }
 
     public MerchandiseV2(String name, String id, int count, double soldPrice) {
-        // double purPrice = soldPrice * 0.8;
-        // this(name, id, count, soldPrice, purchasePrice);
         this(name, id, count, soldPrice, soldPrice * 0.8);
-        // double purPrice = soldPrice * 0.8;
     }
 
     public MerchandiseV2() {
@@ -36,9 +33,6 @@ public class MerchandiseV2 {
 
     public double calculateProfit() {
         double profit = soldPrice - purchasePrice;
-//        if(profit <= 0){
-//            return 0;
-//        }
         return profit;
     }
 
