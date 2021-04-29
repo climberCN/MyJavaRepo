@@ -40,6 +40,7 @@ public class ListStateTest {
             MapStateDescriptor<String, Long> mapStateDescriptor =
                     new MapStateDescriptor<String, Long>("mapState", Types.STRING, Types.LONG);
             mapState = getRuntimeContext().getMapState(mapStateDescriptor);
+
         }
 
         @Override

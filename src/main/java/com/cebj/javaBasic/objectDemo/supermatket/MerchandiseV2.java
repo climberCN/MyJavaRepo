@@ -32,8 +32,7 @@ public class MerchandiseV2 {
     }
 
     public double calculateProfit() {
-        double profit = soldPrice - purchasePrice;
-        return profit;
+        return soldPrice - purchasePrice;
     }
 
     public double buy(int count) {
