@@ -12,6 +12,19 @@ public class Phone extends MerchandiseV2 {
 	// 静态内部类，是在类中使用static修饰的类
 	// 静态内部类可以有访问控制符。静态内部类和静态方法静态变量一样，都是类的静态组成部分，即该类属于外部类，且只有一份。
 	// 静态内部类也是类，在继承、实现接口方面都是一样的。以后不做特殊说明，在这方面都是这样的。
+	// 可以看到，我们在Phone这个类中，又定义了一个public static class CPU{}，看起来稍微有点奇怪。这就是静态内部类
+	// static代表静态，这个类又定义在Phone类内部，因此就叫静态内部类。即，在类中，使用static修饰的类。
+	// 除了位置不一样，其实静态内部类和一般的类没有太多的不同之处。
+
+	// 静态内部类有访问修饰符，这里是public。首先抛去是不是类这个问题，它定义在Phone内，他就是Phone的成员，是成员，就有访问控制符。
+	// 我不管你是类也好，方法也好，属性也好。只要你在类里面，是类的一部分，我就可以用访问控制符来控制你是否可以被外部使用。
+
+	// 如果我们暂时不考虑这个类定义在Phone内部，只是单纯看这个CPU类本身，它的代码并没有什么不一样。可以定义成员变量，构造方法，成员方法。
+	// 也可以覆盖Object的方法。
+
+	// 当我们定义完静态内部类，我们就可以像一个类一样去使用它。比如说创建它的对象。
+	// 当然了，静态内部类有一个特殊的地方，静态内部类，它的代码和类本身的权限一样，可以访问外部类Phone的private属性，因为静态内部类可以
+	// 看作外部类Phone的一部分。
 	public static class CPU {
 		private double speed;
 		private String producer;
@@ -21,8 +34,19 @@ public class Phone extends MerchandiseV2 {
 			this.producer = producer;
 		}
 
+		private void accessThisTest1(Phone phone){
+			phone.cpu = null;
+		}
+
+//		private void accessThisTest2() {
+//			// 提示错误：Cannot resolve symbol "cpu"
+//			this.cpu = null;
+//		}
+
+		private void test(){}
+
 		public double getSpeed() {
-			// 静态内部类，代码和这个类本身的访问权限一样，可以访问外部（Phone）的private属性
+			// 静态内部类其方法和这个类本身的访问权限一样，可以访问外部（Phone）的private属性
 			// 注意：这并不是说它可以访问private变量
 			// 静态内部类是静态的，就好像静态方法一样，没有this自引用，可以通过引用访问Phone对象的private属性
 			Phone phone = null;
@@ -54,10 +78,14 @@ public class Phone extends MerchandiseV2 {
 		public static class ABC{}
 	}
 
-	public void accessStaticClass() {
-		// 同样，外部类也可以访问静态内部类（CPU）的private属性
+	public void accessStaticInnerClassPrivateField() {
+		// 同样，外部类也可以访问静态内部类（CPU）的private属性和private方法
 		this.cpu.producer = "";
+		this.cpu.test();
 	}
+
+	// 总结，静态内部类除了没有父类的this自引用，即不能直接引用父类的属性和方法；另外因为可以看做是外部类的一部分，因此可以
+	// 访问外部类的private属性和方法，并且外部类也可以访问静态内部类的private属性和方法。除此之外，和一般类没有差别。
 
 	public Phone(
 					String name, String id, int count, double soldPrice, double purchasePrice,
@@ -92,8 +120,9 @@ public class Phone extends MerchandiseV2 {
 	}
 }
 
-
-// 非共有类和静态内部类，实际区别就在于能否访问private成员
+// 非公有类就是说，它不是public class。它的名字可以和文件名不一样
+// 它看起来差不多，和静态内部类都是在一个文件里，无非是一个在外部类内部，一个在外部类外部
+// 但非公有类不能访问外部类Phone的private属性和方法，反过来也是一样，Phone也不能访问非公有类Memory的private属性和方法。
 class Memory {
 
 	private long capacity;
