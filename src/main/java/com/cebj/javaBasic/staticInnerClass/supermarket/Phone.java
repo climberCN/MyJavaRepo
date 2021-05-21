@@ -49,6 +49,8 @@ public class Phone extends MerchandiseV2 {
 			// 静态内部类其方法和这个类本身的访问权限一样，可以访问外部（Phone）的private属性
 			// 注意：这并不是说它可以访问private变量
 			// 静态内部类是静态的，就好像静态方法一样，没有this自引用，可以通过引用访问Phone对象的private属性
+			this.speed = 0;
+			this.producer = "";
 			Phone phone = null;
 			phone.memoryG = 99;
 			return speed;
@@ -80,6 +82,7 @@ public class Phone extends MerchandiseV2 {
 
 	public void accessStaticInnerClassPrivateField() {
 		// 同样，外部类也可以访问静态内部类（CPU）的private属性和private方法
+		this.brand = "";
 		this.cpu.producer = "";
 		this.cpu.test();
 	}
