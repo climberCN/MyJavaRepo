@@ -23,6 +23,7 @@ public class InterruptThreadAppMain {
             threads.add(thread);
         }
 
+        // 主线程休眠5秒，对新建线程没有任何影响
         Thread.sleep(TimeUnit.SECONDS.toMillis(5));
         System.out.println();
         System.out.println("开始interrupt线程");
