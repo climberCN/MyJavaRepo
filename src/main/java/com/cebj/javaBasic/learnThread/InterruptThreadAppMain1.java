@@ -14,7 +14,7 @@ public class InterruptThreadAppMain1 {
         // sleep的时候，烦人的InterruptedException到底是什么？
         List<Thread> threads = new ArrayList<>();
 
-        for (int i = 1; i<= 1; i++) {
+        for (int i = 1; i <= 1; i++) {
             Thread thread =
                     new Thread(new PrintStoryRunnable(TEXT, 200 * i), "我的线程-" + i);
 
@@ -25,14 +25,12 @@ public class InterruptThreadAppMain1 {
 
         Thread.sleep(TimeUnit.SECONDS.toMillis(5));
         System.out.println();
-        System.out.println("开始interrupt线程");
+        System.out.println("开始interrupt新建线程");
 
         // interrupt是一个标识，需要thread里执行的代码自己去检查
         // 如果线程不是在sleep，或者执行一些确实处理这个状态的方法，那么调用interrupt没有任何作用
         threads.forEach(Thread::interrupt);
-        System.out.println("interrupr线程结束，继续sleep5秒钟");
         Thread.sleep(TimeUnit.SECONDS.toMillis(5));
-        System.out.println("启动线程结束，名字叫做" + Thread.currentThread().getName());
     }
 
     static class PrintStoryRunnable implements Runnable {
@@ -46,20 +44,25 @@ public class InterruptThreadAppMain1 {
 
         @Override
         public void run() {
-            try {
-                System.out.println("执行这段代码的线程名字叫做" + Thread.currentThread().getName());
-                printSlowly(text, interval);
-                System.out.println(Thread.currentThread().getName() + "执行结束");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.println("执行这段代码的线程名字叫做" + Thread.currentThread().getName());
+            printSlowly(text, interval);
+            System.out.println(Thread.currentThread().getName() + "执行结束");
         }
     }
 
-    public static void printSlowly(String text, long interval) throws InterruptedException {
+    public static void printSlowly(String text, long interval) {
         for (char ch : text.toCharArray()) {
-            Thread.sleep(interval);
-            System.out.print(ch);
+            try {
+                Thread.sleep(interval);
+                System.out.print(ch);
+            } catch (InterruptedException e) {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
         }
         System.out.println();
     }

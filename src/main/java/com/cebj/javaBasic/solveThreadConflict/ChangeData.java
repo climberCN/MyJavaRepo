@@ -17,8 +17,8 @@ public class ChangeData implements Runnable {
         for (int i = 0; i < loopCount; i++) {
 //            System.out.println(Thread.currentThread().getName() + "尝试访问changeStatic方法");
 //            System.out.println("*************************************************");
-            dataHolder.changeSyncBlock(delta);
-//            dataHolder.change(delta);
+//            dataHolder.changeSyncBlock(delta);
+            dataHolder.change(delta);
 //            DataHolder.changeStatic(delta);
         }
         dataHolder.print();

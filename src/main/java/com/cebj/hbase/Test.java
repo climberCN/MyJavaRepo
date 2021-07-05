@@ -1,12 +1,8 @@
 package com.cebj.hbase;
 
-import com.cebj.flink.BatchWordCount;
-import org.apache.hadoop.hbase.client.Connection;
+import com.cebj.flink.demo.BatchWordCount;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class Test {
     public BatchWordCount bw1;

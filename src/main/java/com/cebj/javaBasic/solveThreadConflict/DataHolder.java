@@ -8,9 +8,10 @@ public class DataHolder {
 
     // 一个synchronized解决问题
     public synchronized void change(long delta) {
-        System.out.println(Thread.currentThread().getName() + "进入changeStatic方法");
+        System.out.println(Thread.currentThread().getName() + "进入change方法");
         System.out.println(Thread.currentThread().getName() + "开始操作dataHolder的numberStatic数据");
-        number += delta;
+//        number += delta;
+        numberStatic += delta;
         System.out.println(Thread.currentThread().getName() + "完成对dataHolder的numberStatic属性的操作");
         System.out.println(Thread.currentThread().getName() + "离开changeStatic方法");
         System.out.println("*********************************************************");

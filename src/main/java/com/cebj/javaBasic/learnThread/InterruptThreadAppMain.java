@@ -9,6 +9,7 @@ public class InterruptThreadAppMain {
     private static final String TEXT = "太阳在这个平静的小村庄缓缓升起，又是开始了平常的一天。我们故事的主人公睡眼惺忪的起来\n" +
             "......";
 
+    // 就main线程来看，整个main方法对worker线程有影响的地方就是调用了interrupt
     public static void main(String[] args) throws InterruptedException {
         System.out.println("程序开始，执行的线程名字叫做" + Thread.currentThread().getName());
         // sleep的时候，烦人的InterruptedException到底是什么？
@@ -26,13 +27,14 @@ public class InterruptThreadAppMain {
         // 主线程休眠5秒，对新建线程没有任何影响
         Thread.sleep(TimeUnit.SECONDS.toMillis(5));
         System.out.println();
-        System.out.println("开始interrupt线程");
+        System.out.println("mian休眠5秒后，开始interrupt新建的worker线程");
 
         // interrupt是一个标识，需要thread里执行的代码自己去检查
         // 如果线程不是在sleep，或者执行一些确实处理这个状态的方法，那么调用interrupt没有任何作用
+        // 这里main线程interrupt所有新建worker线程。
         threads.forEach(Thread::interrupt);
-        System.out.println("interrupr线程结束，继续sleep5秒钟");
-        Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+        // main线程interrupt新建worker线程后继续休眠5秒
+//        Thread.sleep(TimeUnit.SECONDS.toMillis(5));
         System.out.println("启动线程结束，名字叫做" + Thread.currentThread().getName());
     }
 
